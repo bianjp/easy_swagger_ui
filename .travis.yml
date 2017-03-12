@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+  - 2.3.3
+  - 2.4.0
+cache:
+  bundler: true
+  timeout: 3600
+script:
+  - bundle exec rubocop
+  - bundle exec rake test

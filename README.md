@@ -6,6 +6,8 @@ Test against Rails 5.x. Should also work with Rails 4.2.x.
 
 Swagger UI version: 2.2.10. Accessible by in `EasySwaggerUi::SWAGGER_UI_VERSION`.
 
+[![Build Status](https://travis-ci.org/bianjp/easy_swagger_ui.svg?branch=master)](https://travis-ci.org/bianjp/easy_swagger_ui) [![Gem Version](https://badge.fury.io/rb/easy_swagger_ui.svg)](https://badge.fury.io/rb/easy_swagger_ui) [![Dependency Status](https://gemnasium.com/badges/github.com/bianjp/easy_swagger_ui.svg)](https://gemnasium.com/github.com/bianjp/easy_swagger_ui) [![Code Climate](https://lima.codeclimate.com/github/bianjp/easy_swagger_ui/badges/gpa.svg)](https://lima.codeclimate.com/github/bianjp/easy_swagger_ui)
+
 ## Features
 
 * Parse API documentation in YAML files and serve as JSON to be consumed by Swagger UI
