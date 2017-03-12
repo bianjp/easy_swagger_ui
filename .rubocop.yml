@@ -1,0 +1,139 @@
+# Documentation: https://rubocop.readthedocs.io/en/stable/
+# Default: https://github.com/bbatsov/rubocop/blob/master/config/default.yml
+
+AllCops:
+  # What MRI version of the Ruby interpreter is the inspected code intended to
+  # run on? (If there is more than one, set this to the lowest version.)
+  # If a value is specified for TargetRubyVersion then it is used.
+  # Else if .ruby-version exists and it contains an MRI version it is used.
+  # Otherwise we fallback to the oldest officially supported Ruby version (2.1).
+  TargetRubyVersion: 2.3
+  # Cop names are not displayed in offense messages by default. Change behavior
+  # by overriding DisplayCopNames, or by giving the `-D/--display-cop-names`
+  # option.
+  DisplayCopNames: true
+
+  Exclude:
+    - 'bin/**/*'
+    - 'db/schema.rb'
+    - 'log/**/*'
+    - 'node_moudles/**/*'
+    - 'public/**/*'
+    - 'tmp/**/*'
+    - 'Guardfile'
+    - 'vendor/bundle/**/*'
+
+
+##################### Style ##################################
+
+# Use alias_method instead of alias.
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+# Use only ascii symbols in comments.
+Style/AsciiComments:
+  Enabled: false
+
+# Checks for braces around the last parameter in a method call if the last parameter is a hash
+Style/BracesAroundHashParameters:
+  Enabled: false
+
+# Checks style of children classes and modules.
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+# Document classes and non-namespace modules.
+Style/Documentation:
+  Enabled: false
+
+# Checks the position of the dot in multi-line method calls.
+Style/DotPosition:
+  EnforcedStyle: trailing
+
+# Checks the formatting of empty method definitions.
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+
+# Checks for a line break before the first parameter in a
+# multi-line method parameter definition.
+Style/FirstMethodParameterLineBreak:
+  Enabled: true
+
+# Add the frozen_string_literal comment to the top of files
+# to help transition from Ruby 2.3.0 to Ruby 3.0.
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+# Prefer Ruby 1.9 hash syntax `{ a: 1, b: 2 }`
+# over 1.8 syntax `{ :a => 1, :b => 2 }`.
+Style/HashSyntax:
+  EnforcedStyle: ruby19_no_mixed_keys
+
+# Checks indentation of method calls with the dot operator
+# that span more than one line.
+# https://github.com/bbatsov/rubocop/issues/1633
+Style/MultilineMethodCallIndentation:
+  Enabled: false
+
+# Add underscores to large numeric literals to improve their readability.
+Style/NumericLiterals:
+  Enabled: false
+
+# Use spaces inside hash literal braces - or don't.
+Style/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+  EnforcedStyleForEmptyBraces: no_space
+
+# Enforces the use of consistent method names from the String class.
+Style/StringMethods:
+  Enabled: true
+
+# Checks for trailing comma in array and hash literals.
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: consistent_comma
+
+#################### Metrics ################################
+
+# A calculated magnitude based on number of assignments, branches, and conditions.
+Metrics/AbcSize:
+  Max: 60
+
+# Avoid long blocks with many lines.
+Metrics/BlockLength:
+  Max: 50
+
+# Avoid classes longer than 100 lines of code.
+Metrics/ClassLength:
+  Max: 500
+
+# A complexity metric that is strongly correlated to the number
+# of test cases needed to validate a method.
+Metrics/CyclomaticComplexity:
+  Max: 10
+
+# Limit lines to 80 characters.
+Metrics/LineLength:
+  Max: 100
+
+# Avoid methods longer than 10 lines of code.
+Metrics/MethodLength:
+  Max: 100
+
+# Avoid modules longer than 100 lines of code.
+Metrics/ModuleLength:
+  Max: 500
+
+# Avoid parameter lists longer than three or four parameters.
+Metrics/ParameterLists:
+  Max: 5
+  CountKeywordArgs: false
+
+# A complexity metric geared towards measuring complexity for a human reader.
+Metrics/PerceivedComplexity:
+  Max: 18
+
+##################### Rails ##################################
+
+# Enables Rails cops.
+Rails:
+  Enabled: true

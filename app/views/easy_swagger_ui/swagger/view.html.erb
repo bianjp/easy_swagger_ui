@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="x-ua-compatible" content="IE=edge">
+  <title>Swagger UI</title>
+  <link rel="icon" type="image/png" href="<%= image_path('easy_swagger_ui/favicon-32x32.png') %>" sizes="32x32" />
+  <link rel="icon" type="image/png" href="<%= image_path('easy_swagger_ui/favicon-16x16.png') %>" sizes="16x16" />
+
+  <%= stylesheet_link_tag "easy_swagger_ui/application", media: "screen" %>
+  <%= stylesheet_link_tag "easy_swagger_ui/print", media: "print" %>
+
+  <%= javascript_include_tag "easy_swagger_ui/application" %>
+
+  <%
+    asset_name = "easy_swagger_ui/lang/#{I18n.locale.to_s.downcase}.js"
+    translation = Rails.application.assets.find_asset(asset_name)
+  %>
+  <% if translation %>
+    <%= javascript_include_tag "easy_swagger_ui/lang/translator" %>
+    <%= javascript_include_tag asset_name %>
+  <% end %>
+
+  <script type="text/javascript">
+    $(function () {
+      var url = window.location.search.match(/url=([^&]+)/);
+      if (url && url.length > 1) {
+        url = decodeURIComponent(url[1]);
+      } else {
+        url = "<%= request.path %>.json";
+      }
+
+      hljs.configure({
+        highlightSizeThreshold: 5000
+      });
+
+      // Pre load translate...
+      if(window.SwaggerTranslator) {
+        window.SwaggerTranslator.translate();
+      }
+      window.swaggerUi = new SwaggerUi({
+        url: url,
+        validatorUrl: <%=raw EasySwaggerUi.validator_enabled ? "'//online.swagger.io/validator'" : 'null' %>,
+        oauth2RedirectUrl: "<%= swagger_routes.oauth2_path %>",
+        dom_id: "swagger-ui-container",
+        supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch'],
+        onComplete: function(swaggerApi, swaggerUi){
+          if(typeof initOAuth == "function") {
+            initOAuth({
+              clientId: "your-client-id",
+              clientSecret: "your-client-secret-if-required",
+              realm: "your-realms",
+              appName: "your-app-name",
+              scopeSeparator: " ",
+              additionalQueryStringParams: {}
+            });
+          }
+
+          if(window.SwaggerTranslator) {
+            window.SwaggerTranslator.translate();
+          }
+        },
+        onFailure: function(data) {
+          log("Unable to Load SwaggerUI");
+        },
+        docExpansion: "none",
+        jsonEditor: false,
+        defaultModelRendering: 'schema',
+        showRequestHeaders: false,
+        showOperationIds: false
+      });
+
+      window.swaggerUi.load();
+
+      function log() {
+        if ('console' in window) {
+          console.log.apply(console, arguments);
+        }
+      }
+  });
+  </script>
+</head>
+
+<body class="swagger-section">
+<div id='header'>
+  <div class="swagger-ui-wrap">
+    <a id="logo" href="http://swagger.io"><img class="logo__img" alt="swagger" height="30" width="30" src="<%= image_path('easy_swagger_ui/logo_small.png') %>" /><span class="logo__title">swagger</span></a>
+    <form id='api_selector'>
+      <div class='input'><input placeholder="http://example.com/api" id="input_baseUrl" name="baseUrl" type="text"/></div>
+      <div id='auth_container'></div>
+      <div class='input'><a id="explore" class="header__btn" href="#" data-sw-translate>Explore</a></div>
+    </form>
+  </div>
+</div>
+
+<div id="message-bar" class="swagger-ui-wrap" data-sw-translate>&nbsp;</div>
+<div id="swagger-ui-container" class="swagger-ui-wrap"></div>
+</body>
+</html>
