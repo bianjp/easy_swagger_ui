@@ -13,12 +13,11 @@
   <%= javascript_include_tag "easy_swagger_ui/application" %>
 
   <%
-    asset_name = "easy_swagger_ui/lang/#{I18n.locale.to_s.downcase}.js"
-    translation = Rails.application.assets.find_asset(asset_name)
+    translation_js = "easy_swagger_ui/lang/#{I18n.locale.to_s.downcase}.js"
   %>
-  <% if translation %>
+  <% if asset_available?(translation_js) %>
     <%= javascript_include_tag "easy_swagger_ui/lang/translator" %>
-    <%= javascript_include_tag asset_name %>
+    <%= javascript_include_tag translation_js %>
   <% end %>
 
   <script type="text/javascript">

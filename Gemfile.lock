@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    easy_swagger_ui (0.1.0)
+    easy_swagger_ui (0.1.1)
       activesupport
       rails
 
