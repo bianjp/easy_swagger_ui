@@ -26,13 +26,14 @@ Gem::Specification.new do |s|
     '{app,config,db,lib}/**/*',
     'MIT-LICENSE',
     'Rakefile',
-    'README.md'
+    'README.md',
+    'CHANGELOG.md',
   ]
 
   s.add_dependency 'rails'
   s.add_dependency 'activesupport'
 
   s.add_development_dependency 'rails', '~> 5.0'
-  s.add_development_dependency 'puma'
+  s.add_development_dependency 'puma', '~> 3.8'
   s.add_development_dependency 'rubocop', '~> 0.47.1'
 end

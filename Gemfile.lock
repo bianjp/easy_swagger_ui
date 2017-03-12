@@ -126,7 +126,7 @@ PLATFORMS
 
 DEPENDENCIES
   easy_swagger_ui!
-  puma
+  puma (~> 3.8)
   rails (~> 5.0)
   rubocop (~> 0.47.1)
 
