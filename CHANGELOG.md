@@ -2,6 +2,8 @@
 
 ## master
 
+* Fix routing error when docs are not in sub directories of `EasySwaggerUi.base_path`
+
 ## 0.1.1
 
 * Fix checking whether an asset exists in production environment
