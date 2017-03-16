@@ -36,7 +36,7 @@ Mount it in `config/routes.rb`:
 
 ```
 # Change the mount point as you like
-mount EasySwaggerUi::Engine => '/docs'
+mount EasySwaggerUi::Engine => 'docs'
 ```
 
 ### Write your API documentation
