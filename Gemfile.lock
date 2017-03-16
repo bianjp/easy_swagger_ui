@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    easy_swagger_ui (0.1.1)
+    easy_swagger_ui (0.1.2)
       activesupport
       rails
 
@@ -131,4 +131,4 @@ DEPENDENCIES
   rubocop (~> 0.47.1)
 
 BUNDLED WITH
-   1.14.5
+   1.14.6
