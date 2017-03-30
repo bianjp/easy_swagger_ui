@@ -11,14 +11,7 @@
   <%= stylesheet_link_tag "easy_swagger_ui/print", media: "print" %>
 
   <%= javascript_include_tag "easy_swagger_ui/application" %>
-
-  <%
-    translation_js = "easy_swagger_ui/lang/#{I18n.locale.to_s.downcase}.js"
-  %>
-  <% if asset_available?(translation_js) %>
-    <%= javascript_include_tag "easy_swagger_ui/lang/translator" %>
-    <%= javascript_include_tag translation_js %>
-  <% end %>
+  <%= load_translation_if_available %>
 
   <script type="text/javascript">
     $(function () {

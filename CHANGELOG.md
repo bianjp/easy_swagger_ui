@@ -2,6 +2,10 @@
 
 ## master
 
+## 0.1.3
+
+* Explicitly include `ApplicationHelper` in controller to avoid tricky issues that sometimes helper methods are not available in view
+
 ## 0.1.2
 
 * Fix routing error when docs are not in sub directories of `EasySwaggerUi.base_path`
