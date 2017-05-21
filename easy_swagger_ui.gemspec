@@ -35,5 +35,5 @@ Gem::Specification.new do |s|
 
   s.add_development_dependency 'rails', '~> 5.0'
   s.add_development_dependency 'puma', '~> 3.8'
-  s.add_development_dependency 'rubocop', '~> 0.47.1'
+  s.add_development_dependency 'rubocop', '~> 0.48.1'
 end

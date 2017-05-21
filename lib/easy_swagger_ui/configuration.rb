@@ -1,12 +1,12 @@
 module EasySwaggerUi
   class Configuration
     # Configurable options
-    OPTIONS = [
-      :base_path,
-      :cache_enabled,
-      :cache_timeout,
-      :cache_store,
-      :validator_enabled,
+    OPTIONS = %i[
+      base_path
+      cache_enabled
+      cache_timeout
+      cache_store
+      validator_enabled
     ].freeze
 
     attr_accessor(*OPTIONS)
